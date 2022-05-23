@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+option go_package = "go_sv/protos";
+
+message  HeartResponse {
+    string UUID = 1;
+    string TIME = 2;
+    string BPM = 3;
+    string HeartADC = 4;
+}
+
+message  HeartRequest {
+    string UUID = 1;
+    string TIME = 2;
+}
+
+service HeartService {
+    rpc GetUnaryHeart (HeartRequest) returns (HeartResponse);
+}
+
+
+//        func NewHeartData(buf []byte) *HeartData {
+//        return &HeartData{
+//        UID:      buf[0:4],
+//                TIME:     buf[4:8],
+//        BPM:      buf[8:12],
+//        HeartADC: buf[12:112],
+//}
+//}
